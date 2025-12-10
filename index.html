@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mobile Object Detection — TensorFlow.js</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- TFJS + model -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.9.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Object Detection (TensorFlow.js)</h1>
+    <div class="controls">
+      <label for="cameraSelect">Camera</label>
+      <select id="cameraSelect"></select>
+      <button id="toggleBtn">Pause</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="video-area">
+      <div class="video-wrap">
+        <video id="video" autoplay playsinline muted></video>
+        <canvas id="overlay"></canvas>
+      </div>
+    </section>
+
+    <aside class="detections">
+      <h2>Detected Objects</h2>
+      <ul id="detList"></ul>
+    </aside>
+  </main>
+
+  <footer>
+    <small>Model: coco-ssd (TensorFlow.js). Works offline after first load (model cached by browser).</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

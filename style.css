@@ -1,0 +1,41 @@
+:root{
+  --bg:#f6fbff;
+  --card:#ffffff;
+  --accent:#0b6df0;
+  --muted:#666;
+  --glass: rgba(255,255,255,0.6);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+body{background:linear-gradient(180deg,var(--bg),#eaf4ff); color:#0b2540; display:flex; flex-direction:column; min-height:100vh;}
+
+header{
+  display:flex; align-items:center; justify-content:space-between; padding:10px 14px;
+  gap:12px; background:var(--card); box-shadow:0 2px 6px rgba(10,20,40,0.06);
+}
+header h1{font-size:16px; margin:0}
+.controls{display:flex; gap:8px; align-items:center}
+.controls select, .controls button{padding:6px 8px; border-radius:6px; border:1px solid #d6e6ff; background:white}
+
+main{display:flex; gap:12px; padding:12px; flex:1; align-items:flex-start}
+/* video area */
+.video-area{flex:1; display:flex; justify-content:center; align-items:center}
+.video-wrap{position:relative; width:100%; max-width:720px; aspect-ratio:16/9; background:#000; border-radius:10px; overflow:hidden; box-shadow:0 6px 22px rgba(11,45,90,0.08)}
+video{width:100%; height:100%; object-fit:cover; display:block}
+canvas{position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none}
+
+/* detections side panel */
+.detections{width:280px; max-width:40%; background:var(--card); border-radius:10px; padding:12px; box-shadow:0 6px 22px rgba(11,45,90,0.06)}
+.detections h2{margin:0 0 8px 0; font-size:15px}
+#detList{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; max-height:60vh; overflow:auto}
+#detList li{display:flex; justify-content:space-between; gap:8px; align-items:center; padding:8px; background:var(--glass); border-radius:8px; font-size:14px}
+.conf{color:var(--muted); font-size:12px}
+
+/* responsive: mobile layout stacks */
+@media (max-width:800px){
+  main{flex-direction:column; align-items:stretch; padding:10px}
+  .detections{width:100%; max-width:none; order:2}
+  .video-area{order:1}
+  header{flex-direction:column; align-items:flex-start; gap:8px}
+}
